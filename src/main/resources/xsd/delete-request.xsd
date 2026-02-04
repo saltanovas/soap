@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="test"
+        xmlns:tel="test"
+        elementFormDefault="qualified">
+    <xs:include schemaLocation="common.xsd"/>
+    <xs:element name="Delete" type="tel:DeleteType"/>
+    <xs:complexType name="DeleteType">
+        <xs:all>
+            <xs:element name="ServiceId" type="tel:NonEmptyString"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="test"
+        xmlns:tel="test"
+        elementFormDefault="qualified">
+    <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:group name="Service">
+        <xs:sequence>
+            <xs:element name="ServiceId" type="tel:NonEmptyString"/>
+            <xs:element name="ServiceType" type="xs:string"/>
+            <xs:element name="CustomerId" type="xs:string"/>
+            <xs:element name="SubscriptionId" type="xs:string"/>
+            <xs:element name="ServiceDetails" type="tel:ServiceDetailsType"/>
+            <xs:element name="CustomerDetails" type="tel:CustomerDetailsType"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="ServiceDetailsType">
+        <xs:all>
+            <xs:element name="PlanType" type="xs:string"/>
+            <xs:element name="RoamingEnabled" type="xs:boolean"/>
+            <xs:element name="DataLimit" type="xs:string" minOccurs="0"/>
+            <xs:element name="AdditionalServices" type="tel:AdditionalServicesType" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="AdditionalServicesType">
+        <xs:sequence>
+            <xs:element name="Service" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CustomerDetailsType">
+        <xs:all>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Address" type="tel:AddressType" minOccurs="0"/>
+            <xs:element name="ContactNumber" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="AddressType">
+        <xs:all>
+            <xs:element name="Street" type="xs:string" minOccurs="0"/>
+            <xs:element name="City" type="xs:string" minOccurs="0"/>
+            <xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="Country" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

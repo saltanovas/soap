@@ -1,0 +1,9 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="test"
+           xmlns:tel="test"
+           elementFormDefault="qualified">
+    <xs:include schemaLocation="create-request.xsd"/>
+    <xs:include schemaLocation="read-request.xsd"/>
+    <xs:include schemaLocation="update-request.xsd"/>
+    <xs:include schemaLocation="delete-request.xsd"/>
+</xs:schema>

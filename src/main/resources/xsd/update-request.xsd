@@ -1,0 +1,12 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="test"
+           xmlns:tel="test"
+           elementFormDefault="qualified">
+    <xs:include schemaLocation="common.xsd"/>
+    <xs:element name="Update" type="tel:UpdateType"/>
+    <xs:complexType name="UpdateType">
+        <xs:sequence>
+            <xs:group ref="tel:Service"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
